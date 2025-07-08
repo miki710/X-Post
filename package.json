@@ -1,0 +1,29 @@
+{
+  "name": "x-post",
+  "version": "1.0.0",
+  "description": "Text style converter using Google Gemini API",
+  "private": true,
+  "scripts": {
+    "install": "npm run install:backend && npm run install:frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [
+    "zundamon",
+    "obasan",
+    "text-converter",
+    "gemini-api",
+    "react",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT"
+}
