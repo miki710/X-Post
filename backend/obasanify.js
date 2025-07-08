@@ -1,8 +1,16 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+console.log('🟢 obasanify.js が読み込まれました');
+
 export async function obasanify(text, apiKey) {
+  console.log('🚀 obasanify 実行開始');
+  console.log('🔑 APIキー:', apiKey);
+
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+  // ここにも追加できます：
+  console.log('📡 モデル取得完了');
 
   const prompt = `以下の日本語テキストを「おばさん構文」に変換してください。
 

@@ -1,10 +1,17 @@
+// ✅ 必ず一番上に追加
+import path from 'path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import { zundamonify } from './zundamonify.js';
 import { obasanify } from './obasanify.js';
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
