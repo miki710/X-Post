@@ -25,12 +25,17 @@ async function zundamonify(text) {
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
+
+    // レスポンスの中身を詳細にログ出力
+    console.log("🧠 Gemini APIレスポンス:", response);
+    
     const convertedText = response.text();
+    console.log("📤 送信する変換テキスト:", convertedText)
 
     return {
       success: true,
       original: text,
-      converted: convertedText.trim()
+      zundamonText: convertedText.trim(), // ← フロントエンドと一致させる
     };
   } catch (error) {
     console.error('Error in zundamonify:', error);

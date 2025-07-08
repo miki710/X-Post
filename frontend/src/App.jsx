@@ -30,6 +30,7 @@ function App() {
       }
 
       const data = await response.json()
+      console.log("🔍 APIレスポンス:", data);
       setOutputText(data.zundamonText)
     } catch (err) {
       setError(err.message || '変換中にエラーが発生しました')

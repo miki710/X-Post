@@ -12,13 +12,15 @@
     "dev:backend": "npm run dev --workspace=backend",
     "dev:frontend": "npm run dev --workspace=frontend",
     "build": "npm run build --workspace=frontend",
-    "start": "npm run start --workspace=backend",
-    "install": "npm install --workspaces"
+    "start": "npm run start --workspace=backend"
   },
   "devDependencies": {
     "concurrently": "^8.2.0"
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.44.2"
   }
 }
