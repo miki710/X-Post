@@ -37,7 +37,7 @@ function App() {
         throw new Error(data.error || 'エラーが発生しました')
       }
 
-      setConvertedText(data.convertedText); // 修正: data.converted -> data.convertedText
+      setConvertedText(data.converted); // 修正: data.converted -> data.convertedText
     } catch (error) {
       setError(error.message || 'テキスト変換中にエラーが発生しました')
     } finally {
