@@ -37,7 +37,7 @@ function App() {
         throw new Error(data.error || 'エラーが発生しました')
       }
 
-      setConvertedText(data.converted)
+      setConvertedText(data.convertedText); // 修正: data.converted -> data.convertedText
     } catch (error) {
       setError(error.message || 'テキスト変換中にエラーが発生しました')
     } finally {
@@ -61,6 +61,8 @@ function App() {
         return 'ずんだもん風'
       case 'obasan':
         return 'おばさん構文'
+      case 'influencer': // ★ 追加 ★
+        return '女性アフィリエイター風'
       default:
         return ''
     }
@@ -77,6 +79,7 @@ function App() {
         <div className="style-selector">
           <h2>変換スタイルを選択</h2>
           <div className="radio-group">
+            {/* ずんだもん風 */}
             <label className={`radio-label ${style === 'zundamon' ? 'active' : ''}`}>
               <input
                 type="radio"
@@ -88,6 +91,7 @@ function App() {
               <span className="radio-text">ずんだもん風</span>
               <span className="style-example">例: 〜のだ、〜なのだ</span>
             </label>
+            {/* おばさん構文 */}
             <label className={`radio-label ${style === 'obasan' ? 'active' : ''}`}>
               <input
                 type="radio"
@@ -98,6 +102,18 @@ function App() {
               />
               <span className="radio-text">おばさん構文</span>
               <span className="style-example">例: 〜ね〜！😊✨💕</span>
+            </label>
+            {/* ★ 女性アフィリエイター風を追加 ★ */}
+            <label className={`radio-label ${style === 'influencer' ? 'active' : ''}`}>
+              <input
+                type="radio"
+                name="style"
+                value="influencer"
+                checked={style === 'influencer'}
+                onChange={(e) => setStyle(e.target.value)}
+              />
+              <span className="radio-text">女性アフィリエイター風</span>
+              <span className="style-example">例: 〜よ✨💖、〜すぎ🥺</span>
             </label>
           </div>
         </div>

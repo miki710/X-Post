@@ -7,11 +7,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
+console.log(process.env.GOOGLE_API_KEY)
 
 import express from 'express';
 import cors from 'cors';
 import { zundamonify } from './zundamonify.js';
 import { obasanify } from './obasanify.js';
+import { influencerify } from './influencerify.js'; // influencerifyをインポート
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -50,6 +52,9 @@ app.post('/api/convert', async (req, res) => {
         break;
       case 'obasan':
         convertedText = await obasanify(text, process.env.GOOGLE_API_KEY);
+        break;
+      case 'influencer': // influencerスタイルを追加
+        convertedText = await influencerify(text, process.env.GOOGLE_API_KEY); // APIキーを渡す
         break;
       default:
         return res.status(400).json({
